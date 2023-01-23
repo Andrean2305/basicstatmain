@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>DBMS Final</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<style>
+  body{
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+}
+
+.navbar-ctn{
+  position: relative;
+  z-index: 10;
+  font-size: 1.6vw;
+  font-weight: 600;
+  color: white;
+  background-color: rgba(57, 57, 57, 0.95);
+  border-radius: 3.5vw;
+  width: 50.3vw;
+
+  margin: 0 auto;
+  margin-top: 5.4vw;
+  padding-left: 3.5vw;
+  padding-right: 3.5vw;
+}
+
+.navbar{
+  display: flex;
+}
+
+.navbar a{
+  color: inherit;
+  text-decoration: none;
+  list-style: none;
+}
+
+.navbar .report, .navbar .contribution{
+  color: #BFBFBF;
+  font-weight: 400;
+}
+
+/*--Dropdown Button--*/
+.dropbtn {
+  background-color: rgba(75, 75, 75, 0);
+  color: white;
+  padding: 0.8vw;
+  font-size: 1.6vw;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #ABABAB;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  font-weight: 400;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {background-color: #ddd;}
+.show {display:block;}
+/* ------------------------ */
+
+.body{
+  width: 33.9vw;
+  margin-top: 5.2vw;
+  margin-left: 5vw;
+}
+
+.title h2{
+  font-weight: 600;
+  font-size: 3.5vw;
+  margin-bottom: 1.6vw;
+}
+
+.title h1{
+  font-weight: 600;
+  font-size: 5vw;
+  line-height: 5.5vw;
+}
+
+.title{
+  position: absolute;
+  z-index: 3;
+}
+
+.car-png-ctn{
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 55vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.car-png-ctn img{
+  position: absolute;
+  top: 5vw;
+  left: 60vw;
+  width: 30%;
+  pointer-events: none;
+}
+
+.prob-ctn{
+  position: absolute;
+  z-index: 1;
+  top: 36vw;
+  left: 0;
+  overflow: hidden;
+
+  padding: 7vw 8.35vw;
+  padding-bottom: 6.8vw;
+  background: #4B4B4B;
+  color: white;
+  overflow: hidden;
+}
+
+.prob-ctn h1, .idea-ctn h1, .tools-ctn h1{
+  font-size: 3.2vw;
+  font-weight: 600;
+  letter-spacing: 0.365em;
+  text-align: center;
+}
+
+.prob-ctn p, .idea-ctn p{
+  font-size: 2.4vw;
+  font-weight: 300;
+  text-align: center;
+  line-height: 202.18%;
+  margin-top: 2.65vw;
+}
+
+.man-png-ctn{
+  position: absolute;
+  z-index: 1;
+  width: 68%;
+  height: 110vw;
+  left: -10vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.man-png-ctn img{
+  position: absolute;
+  top: 58vw;
+  left: 0;
+  width: 50%;
+  pointer-events: none;
+}
+
+.solution-ctn{
+  position: absolute;
+  z-index: 1;
+  top: 81vw;
+  right: 0;
+
+  padding: 7vw 8.35vw;
+  padding-bottom: 6.8vw;
+}
+
+.solution-ctn h1{
+  font-size: 3.2vw;
+  font-weight: 600;
+  letter-spacing: 0.365em;
+  text-align: end;
+}
+
+.solution-ctn p{
+  font-size: 2.4vw;
+  font-weight: 300;
+  text-align: end;
+  line-height: 202.18%;
+  margin-top: 2.65vw;
+  width: 65vw;
+}
+
+.idea-ctn{
+  position: absolute;
+  z-index: 2;
+  top: 143vw;
+  left: 0;
+
+  padding: 7vw 8.35vw;
+  padding-bottom: 6.8vw;
+  color: white;
+  background-color: #212121;;
+}
+
+.tools-ctn{
+  position: absolute;
+  z-index: 5;
+  top: 218vw;
+  left: 0;
+
+  padding: 3vw 8.35vw;
+  padding-bottom: 6.8vw;
+}
+
+.list-ctn{
+  margin-top: 2.65vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.list-ctn .list{
+  width: 18vw;
+  text-align: center;
+
+  font-size: 2.4vw;
+  font-weight: 300;
+}
+
+/* button */
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 10;
+  outline: none;
+  background: rgba(255, 255, 255, 0);
+  border: 2px solid #ED3C3C;
+  border-radius: 10px;
+  color: #ED3C3C;
+  cursor: pointer;
+  padding: 15px;
+  font-size: 18px;
+}
+
+#myBtn:hover {
+  background: rgba(255, 255, 255, 0.44); /* Add a dark-grey background on hover */
+}
+</style>
+<body>
+    <div class="navbar-ctn">
+      <div class="navbar">
+        <!-- <a href="index.html" class="desc">Description</a> -->
+        <div class="dropdown">
+          <button onclick="myFunction()" value="Description ↓" class="dropbtn">Proposal ↓</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#idea">Background</a>
+            <a href="#problem">Problem</a>
+            <a href="#solution">Solution</a>
+            <a href="#tools">Tools</a>
+          </div>
+        </div>
+        <a href="https://andrean2305.github.io/BasicStatBlog/" class="report">Final Report</a>
+        <a href="contribution.html" class="contribution">Contribution</a>
+      </div>
+    </div>
+
+    <div class="body">
+      <div class="title">
+        <h2>Basic Statistic Final Project</h2>
+        <h1>Internet Gap<br>In Indonesia</h1>
+      </div>
+
+      <div class="car-png-ctn">
+        <img src="internet.png" alt="Picture of Car" class="car">
+      </div>
+
+      <div class="prob-ctn" id="idea">
+        <h1>BACKGROUND</h1>
+        <p>Internet usage in Indonesia has seen significant growth in recent years. According to data from the Indonesian Internet Service Provider Association (APJII), 
+          the number of internet users in Indonesia reached 171.4 million in 2019, representing a penetration rate of around 50 percent. This growth has been driven by 
+          a number of factors, including increasing access to affordable mobile devices and the expansion of broadband infrastructure.</p>
+      </div>
+      <!-- idea-ctn
+           prob-ctn
+          solution-ctn -->
+      <div class="solution-ctn" id="problem">
+        <h1>PROBLEM</h1>
+        <p>One of the key challenges facing internet usage in Indonesia is the digital divide, which refers to the gap between those who have access to the internet 
+          and those who do not. While urban areas tend to have higher rates of internet penetration, rural areas and lower-income communities often have limited or no 
+          access to the internet. To address this issue, the Indonesian  government  has  implemented  a  number  of  initiatives,  including  the development of a national 
+          broadband plan and the establishment of community internet centers.</p>
+      </div>
+
+      <div class="man-png-ctn">
+        <img src="man.png" alt="Picture of Man" class="man">
+      </div>
+
+      <div class="idea-ctn" id="solution">
+        <h1>SOLUTION</h1>
+        <p>Everyone  must  have  access  to  the  internet  in  order  to  improve  their  work.  We  are comparing speed and cost because Indonesia's internet growth 
+          is somewhat sluggish. We can group and forecast the speed and cost of internet service for the following year by looking at historical data. Additionally, 
+          based on the data, we can make some suggestions to increase internet speed.  We use machine learning techniques to gain the desired output for our project. 
+          We aim to predict the internet speed of Indonesia for the year of 2023, along with clustering different sets of internet speed in Indonesia as well as 
+          finding the correlation between the rate of internet users and the minimum wage. Therefore, we will use testing to show the result how signifanct the gap is.</p>
+      </div>
+
+
+      <div class="tools-ctn" id="tools">
+        <h1>TOOLS</h1>
+        <div class="list-ctn">
+          <div class="list excel">
+            <p>Ookla</p>
+          </div>
+          <div class="list html">
+            <p>BPS</p>
+          </div>
+          <div class="list mysql">
+            <p>VSC</p>
+          </div>
+          <div class="list ms">
+            <p>Microsoft</p>
+          </div>
+          <div class="list github">
+            <p>GitHub</p>
+          </div>
+          <div class="list netlify">
+            <p>Netlify</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+</body>
+
+<script>
+  // Get the button:
+  let mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+
+  // Dropdown menu
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script>
+
+</html>
